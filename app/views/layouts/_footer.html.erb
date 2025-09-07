@@ -1,14 +1,10 @@
-<footer id='footer' class='navbar navbar-expand-lg navbar-light bg-light fixed-bottom'>
-  <div class='container'>
-    <div class='row w-100'>
-      <div class='col d-flex justify-content-center align-items-center'>
-        <p class="mb-0 me-5">Copyright © 2025. ClinicoforMR</p>
-        <div>
-          <%= link_to "お問い合わせ", "#", class: "nav-link d-inline px-2" %>
-          <%= link_to "プライバシーポリシー", privacy_policy_path, class: "nav-link d-inline px-2" %>
-          <%= link_to "利用規約", terms_of_use_path, class: "nav-link d-inline px-2" %>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+<div class="container">
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">お問い合わせ</a></li>
+      <li class="nav-item"><a href="/privacy_policy" class="nav-link px-2 text-body-secondary">プライバシーポリシー</a></li>
+      <li class="nav-item"><a href="/terms_of_use" class="nav-link px-2 text-body-secondary">利用規約</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">© 2025. ClinicoforMR</p>
+  </footer>
+</div>
