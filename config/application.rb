@@ -31,5 +31,6 @@ module Myapp
     config.middleware.insert_after ActionDispatch::Cookies, OmniAuth::Builder
 
     config.i18n.default_locale = :ja
+    config.assets.paths << Rails.root.join("app/assets/builds")
   end
 end
