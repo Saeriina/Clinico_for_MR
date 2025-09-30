@@ -8,21 +8,21 @@ RSpec.describe "UserSessions", type: :system do
 
   describe 'ログイン' do
     context "フォームの入力値が正常" do
-      it '正しい値を入力した場合、ログインできること' do 
+      it '正しい値を入力した場合、ログインできること' do
         visit login_path
         fill_in 'user_email', with: user.email
         fill_in 'user_password', with: user.password
-        #puts page.body
+        # puts page.body
         click_button 'login-submit'
         expect(page).to have_content "ログインしました"
         expect(current_path).to eq root_path
       end
     end
-    
+
     context "フォームが未入力" do
       it 'フォームに未入力の場合、ログインできないこと' do
         visit login_path
-        #puts "DEBUG: #{user.inspect}"
+        # puts "DEBUG: #{user.inspect}"
         fill_in 'user_email', with: ""
         fill_in 'user_password', with: user.password
         click_button 'login-submit'
@@ -37,7 +37,7 @@ RSpec.describe "UserSessions", type: :system do
     context "ログアウトボタンをクリック" do
       it 'ログアウトボタンを押した場合、ログアウトできること' do
         login_as(user)
-        #puts "DEBUG: #{user.inspect}"
+        # puts "DEBUG: #{user.inspect}"
         click_button "ログアウト"
         expect(page).to have_content "ログアウトしました"
         expect(current_path).to eq root_path
