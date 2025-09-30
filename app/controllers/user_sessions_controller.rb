@@ -1,10 +1,12 @@
 class UserSessionsController < ApplicationController
   skip_before_action :require_login, only: %i[new create google_auth]
 
-  def new; end
+  def new
+    @user = User.new
+  end
 
   def create
-    @user = login(params[:email], params[:password])
+    @user = login(params[:user][:email], params[:user][:password])
     Rails.logger.debug("Creating user: #{@user.inspect}")
     if @user
       redirect_to root_path, success: "ログインしました"
