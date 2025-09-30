@@ -3,16 +3,16 @@
     <div class=" col-md-10 col-lg-8 mx-auto">
       <h1>ログイン</h1>
         
-      <%= form_with url: login_path do |f| %>
+      <%= form_with scope: :user, url: login_path, local: true do |f| %>
         <div class="mb-3">
           <%= f.label :email, t('activerecord.attributes.user.email') %>
           <%= f.email_field :email, class: "form-control" %>
         </div>
         <div class="mb-3">
-        <%= f.label :email, t('activerecord.attributes.user.password') %>
+        <%= f.label :password, t('activerecord.attributes.user.password') %>
           <%= f.password_field :password, class: "form-control" %>
         </div>
-        <%= f.submit "ログイン", class: "btn btn-primary" %>
+        <%= f.submit "ログイン", class: "btn btn-primary", id: "login-submit" %>
       <% end %>
       <div class='text-center'>
         <%= link_to '登録ページへ', new_user_path %>
