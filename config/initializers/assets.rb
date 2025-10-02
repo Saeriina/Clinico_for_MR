@@ -11,3 +11,8 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w[ admin.js admin.css ]
+# ✅ esbuild の出力先を assets パスに追加する
+# Rails.application.config.assets.paths << Rails.root.join("app/assets/builds")
+
+# JS ソース(app/javascript)を assets pipeline の探索から外す
+# Rails.application.config.assets.paths -= [Rails.root.join("app/javascript")]
