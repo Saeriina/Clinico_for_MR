@@ -7,12 +7,10 @@
 
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <%= link_to "ログイン", login_path, class: "nav-link" %>
+        <%= link_to "ログイン", login_path, class: "btn btn-outline-primary ms-2" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Googleでログイン", "/auth/google_oauth2",
-              data: { turbo: false }, 
-              class: "btn btn-outline-primary ms-2" %>
+      <%= button_to "Googleログイン", "/auth/google_oauth2", data: { turbo: false }, class: "btn btn-outline-primary ms-2", form_class: "d-inline" %>
       </li>
     </ul>
   </header>
