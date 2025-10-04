@@ -1,24 +1,31 @@
-<div class="container">
-  <div class="row">
-    <div class=" col-md-10 col-lg-8 mx-auto">
-      <h1>ログイン</h1>
-        
-      <%= form_with scope: :user, url: login_path, local: true do |f| %>
-        <div class="mb-3">
-          <%= f.label :email, t('activerecord.attributes.user.email') %>
-          <%= f.email_field :email, class: "form-control" %>
-        </div>
-        <div class="mb-3">
-        <%= f.label :password, t('activerecord.attributes.user.password') %>
-          <%= f.password_field :password, class: "form-control" %>
-        </div>
-        <%= f.submit "ログイン", class: "btn btn-primary", id: "login-submit" %>
-      <% end %>
-      <div class='text-center'>
-        <%= link_to '登録ページへ', new_user_path %>
-        <h5>パスワードをお忘れですか？</h5>
-        <%= render 'forgot_password_form' %>
+<div class="d-flex align-items-center py-4" style="min-height: 50vh;">
+  <main class="form-signin w-100 m-auto" style="max-width: 400px;">
+    <%= form_with scope: :user, url: login_path, local: true do |f| %>
+      <h1 class="h3 mb-3 fw-normal"><i class="bi bi-box-arrow-in-right"> </i>ログイン</h1>
+
+      <div class="form-floating mb-3">
+        <%= f.email_field :email, class: "form-control", id: "floatingInput", placeholder: "name@example.com" %>
+        <%= f.label :email, t('activerecord.attributes.user.email'), for: "floatingInput" %>
       </div>
+
+      <div class="form-floating mb-3">
+        <%= f.password_field :password, class: "form-control", id: "floatingPassword", placeholder: "Password" %>
+        <%= f.label :password, t('activerecord.attributes.user.password'), for: "floatingPassword" %>
+      </div>
+
+      <div class="form-check text-start my-3">
+        <%= f.check_box :remember_me, class: "form-check-input", id: "flexCheckDefault" %>
+        <%= f.label :remember_me, "ログイン状態を保持する", class: "form-check-label", for: "flexCheckDefault" %>
+      </div>
+
+      <%= f.submit "ログイン", class: "btn btn-primary w-100 py-2", id: "login-submit" %>
+    <% end %>
+
+    <!-- リンク部分 -->
+    <div class="text-center mt-3">
+      <%= link_to '登録ページへ', new_user_path, class: "d-block mb-2" %>
+      <h5>パスワードをお忘れですか？</h5>
+      <%= render 'forgot_password_form' %>
     </div>
-  </div>
+  </main>
 </div>
