@@ -33,9 +33,11 @@
 							<% if schedule %>
 								<!-- スケジュールが既にある場合はクリニック名を表示 -->
 								<%= schedule.clinic.clinic_name %>
-
-								
-								<%= button_to task_path(schedule), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, id: "button-delete-#{schedule.id}" do %>
+								<%= button_to task_path(schedule),
+									method: :delete,
+									data: { turbo_confirm: "本当に削除しますか？" },
+									class: "btn btn-xs btn-outline-secondary py-0 px-1",
+									style: "font-size: 0.7rem;" do %>
 									<i class="bi bi-trash-fill"></i>
 								<% end %>
 							<% else %>
@@ -48,7 +50,7 @@
 									<input type="text" name="clinic_name" class="form-control"
 										style="border: none; outline: none; background: transparent; width: 100%;">
 						
-									<%= f.submit "保存", class: "btn btn-primary" %>
+									<%= f.submit "保存", class: "btn btn-xs btn-outline-secondary py-0 px-1", style: "font-size: 0.7rem;" %>
 								<% end %>
 							<% end %>
 						</td>

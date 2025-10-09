@@ -1,12 +1,7 @@
-.top-wrapper {
+.hero-image {
   position: relative;
-  background-image: url('clinico.jpg'); /* 画像のパスを指定 */
   background-size: cover; /* 画像を要素のサイズに合わせる */
   background-position: center; /* 中央に配置 */
   height: calc(100vh - 134px);
   display: flex; /* 必要に応じてレイアウトの調整 */
-}
-
-body {
-  padding-bottom: 60px; /* フッターの高さ分 (必要に応じて調整) */
 }

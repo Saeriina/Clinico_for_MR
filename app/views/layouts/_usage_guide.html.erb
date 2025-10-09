@@ -1,77 +1,129 @@
-<hr class="border border-secondary border-2 opacity-50">
+<div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag "clinico.jpg", class: "d-block w-100 hero-image", alt: "Clinico" %>
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>MRのための顧客管理・スケジュール管理アプリ</h1>
+            <p class="opacity-75">効率的なMR活動をサポートします。</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "clinico_top2.jpg", class: "d-block w-100 hero-image", alt: "Clinico" %>
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>顧客情報・製品情報を一括管理</h1>
+            <p>必要な情報をこのアプリ一つにまとめられます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "clinico_top3.jpg", class: "d-block w-100 hero-image", alt: "Clinico" %>
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>ボタン一つで簡単スケジューリング</h1>
+            <p>訪問可能日時に合わせて自動スケジュール。面倒な事務作業をサポートします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
-<div class="container">
-  <div class="row justify-content-center mt-4">
-    <div class="col-lg-6 col-12 mb-4 d-flex justify-content-center">
-      <div class="card h-100 w-100">
-        <div class="card-header d-flex align-items-center justify-content-center">
-          <i class="fa-solid fa-chart-line" style="font-size: 35px;"></i>
-          <h5 class="card-title ms-4 mt-2">クリニック登録</h5> 
-        </div>
-        <div class="card-body">
-          <p class="card-text">
-            顧客であるクリニックの情報を登録できます。<br>
+  <div class="container marketing">
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">クリニック登録 </h2>
+        <p class="lead">顧客であるクリニックの情報を登録できます。<br>
             住所を登録することで、場所の確認が簡単に行えます。<br>
-            訪問可能な日時や訪問頻度の設定も可能です。<br>
-          </p>
-        </div>
+            訪問可能な日時や訪問頻度の設定も可能です。<br></p>
+      </div>
+
+      <div class="col-md-5">
+      <img src="<%= asset_path('clinic1.png') %>" 
+       class="featurette-image img-fluid mx-auto" 
+       alt="サンプル画像" 
+       width="500" 
+       height="500">
       </div>
     </div>
-      
-    <div class="col-lg-6 col-12 mb-4 d-flex justify-content-center">
-      <div class="card h-100 w-100">
-        <div class="card-header d-flex align-items-center justify-content-center">
-          <i class="fa-regular fa-map" style="font-size: 35px;"></i>
-          <h5 class="card-title ms-4 mt-2">製品登録</h5> 
-        </div>
-        <div class="card-body">
-          <p class="card-text">
-            製品を登録して、適応病名を確認できます。<br>
-            各クリニックで使用されている製品の確認も可能です。（※今後対応予定）
-          </p>
-        </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">製品登録</h2>
+        <p class="lead">製品を登録して、適応病名を確認できます。<br>
+            各クリニックで使用されている製品の確認も可能です。（※今後対応予定）</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img src="<%= asset_path('clinic2.png') %>" 
+        class="featurette-image img-fluid mx-auto" 
+        alt="サンプル画像" 
+        width="500" 
+        height="500">
       </div>
     </div>
-  
-    <div class="col-lg-6 col-12 mb-4 d-flex justify-content-center">
-      <div class="card h-100 w-100">
-        <div class="card-header d-flex align-items-center justify-content-center">
-          <i class="fa-solid fa-user-tie" style="font-size: 35px;"></i>
-          <h5 class="card-title ms-4 mt-2">タスク管理</h5> 
-        </div>
-        <div class="card-body">
-          <p class="card-text">
-            訪問スケジュールの管理が可能です。<br>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">タスク管理</h2>
+        <p class="lead">訪問スケジュールの管理が可能です。<br>
             提出物を登録することで、事務作業の抜け漏れを防ぎます。<br>
-            提出期限が過ぎた提出物は、自動で削除されます。
-          </p>
-        </div>
+            提出期限が過ぎた提出物は、自動で削除されます。</p>
+      </div>
+      <div class="col-md-5">
+        <img src="<%= asset_path('clinic3.png') %>" 
+        class="featurette-image img-fluid mx-auto" 
+        alt="サンプル画像" 
+        width="500" 
+        height="500">
       </div>
     </div>
-  
-    <div class="col-lg-6 col-12 mb-4 d-flex justify-content-center">
-      <div class="card h-100 w-100">
-        <div class="card-header d-flex align-items-center justify-content-center">
-          <i class="fa-regular fa-newspaper" style="font-size: 35px;"></i>
-          <h5 class="card-title ms-4 mt-2">自動スケジューリング機能</h5> 
-        </div>
-        <div class="card-body">
-          <p class="card-text">
-            「スケジュール自動作成」ボタンを押すと、<br>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">自動スケジューリング機能</h2>
+        <p class="lead">スケジュール自動作成」ボタンを押すと、<br>
             登録した訪問頻度に基づいて、<br>
             スケジュールが自動的に作成されます。<br>
-            ※対象は、自分が登録したクリニックのみです。
-          </p>
-        </div>
+            ※対象は、自分が登録したクリニックのみです。</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img src="<%= asset_path('clinic4.png') %>" 
+        class="featurette-image img-fluid mx-auto" 
+        alt="サンプル画像" 
+        width="500" 
+        height="500">
       </div>
     </div>
+
+    
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
   </div>
-</div>
-
-<hr class="border border-secondary border-2 opacity-50">
-
-<div class="container text-center">
-    <p class="lead mb-4">
-      ※ご利用にはログインが必要です<br>
-    </p>
-</div>
