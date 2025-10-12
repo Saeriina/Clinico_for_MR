@@ -10,7 +10,7 @@ RSpec.describe "UserSessions", type: :system do
     context "フォームの入力値が正常" do
       it '正しい値を入力した場合、ログインできること' do
         visit login_path
-        fill_in 'user_email', with: user.email
+        fill_in 'email', with: user.email
         fill_in 'user_password', with: user.password
         # puts page.body
         click_button 'login-submit'
@@ -23,7 +23,7 @@ RSpec.describe "UserSessions", type: :system do
       it 'フォームに未入力の場合、ログインできないこと' do
         visit login_path
         # puts "DEBUG: #{user.inspect}"
-        fill_in 'user_email', with: ""
+        fill_in 'email', with: ""
         fill_in 'user_password', with: user.password
         click_button 'login-submit'
         expect(page).to have_content "ログインに失敗しました"
