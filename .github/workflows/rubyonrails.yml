@@ -89,7 +89,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2
-          bundler-cache: false  # ← 一時的にfalseにしてキャッシュ障害を回避
+          bundler-cache: true  # ← 一時的にfalseにしてキャッシュ障害を回避
 
       - name: Wait for DB
         run: |
