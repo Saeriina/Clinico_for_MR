@@ -35,17 +35,18 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
-RSpec.configure do |config|
+  # RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_paths = [
-    Rails.root.join('spec/fixtures')
-  ]
+
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = false
+  # config.use_transactional_fixtures = false
   RSpec.configure do |config|
+  config.fixture_paths = [
+    Rails.root.join('spec/fixtures')
+  ]
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
@@ -67,7 +68,10 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-end
+
+  config.include FactoryBot::Syntax::Methods
+  config.include LoginMacros
+
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
@@ -92,11 +96,17 @@ end
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-  config.include FactoryBot::Syntax::Methods
-  config.include LoginMacros
+  # config.include FactoryBot::Syntax::Methods
+  # config.include LoginMacros
 
   config.before(:each, type: :system) do
     driven_by :remote_chrome
+    # Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
+    # Capybara.server_port = 4444
+    # Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
+    # Capybara.ignore_hidden_elements = false
+
+    # driven_by :selenium_chrome_headless
     Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
     Capybara.server_port = 4444
     Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
