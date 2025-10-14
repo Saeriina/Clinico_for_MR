@@ -13,7 +13,7 @@ RSpec.describe "UserSessions", type: :system do
         fill_in 'floatingInput', with: user.email
         fill_in 'floatingPassword', with: "password"
         # puts page.body
-        puts "DEBUG: #{user.inspect}"
+        # puts "DEBUG: #{user.inspect}"
         click_button 'ログイン'
         expect(page).to have_content "ログインしました"
         expect(current_path).to eq root_path
@@ -23,7 +23,7 @@ RSpec.describe "UserSessions", type: :system do
     context "フォームが未入力" do
       it 'フォームに未入力の場合、ログインできないこと' do
         visit login_path
-        puts "DEBUG: #{user.inspect}"
+        # puts "DEBUG: #{user.inspect}"
         fill_in 'floatingInput', with: ""
         fill_in 'floatingPassword', with: "passwprd"
         click_button 'ログイン'
@@ -38,7 +38,7 @@ RSpec.describe "UserSessions", type: :system do
     context "ログアウトボタンをクリック" do
       it 'ログアウトボタンを押した場合、ログアウトできること' do
         login_as(user)
-        puts page.body
+        # puts page.body
         # puts "DEBUG: #{user.inspect}"
         click_button "ログアウト"
         expect(page).to have_content "ログアウトしました"
