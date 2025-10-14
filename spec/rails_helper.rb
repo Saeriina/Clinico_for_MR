@@ -37,14 +37,14 @@ rescue ActiveRecord::PendingMigrationError => e
 end
   # RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  
+
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   # config.use_transactional_fixtures = false
 RSpec.configure do |config|
-  
+
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
   ]
@@ -108,6 +108,5 @@ RSpec.configure do |config|
     # Capybara.ignore_hidden_elements = false
 
     driven_by :selenium_chrome_headless
-    Capybara.default_max_wait_time = 5 # ← これ大事！
   end
 end
