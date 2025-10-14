@@ -77,6 +77,12 @@ jobs:
           POSTGRES_DB: rails_test
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
+      selenium:
+        image: selenium/standalone-chrome:latest
+        ports:
+          - "4444:4444"
+        options: >-
+          --shm-size=2g
     env:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
@@ -90,23 +96,6 @@ jobs:
         with:
           ruby-version: 3.2
           bundler-cache: true  # ← 一時的にfalseにしてキャッシュ障害を回避
-
-
-          # ✅ ここで Chrome とドライバをインストール
-      - name: Install Chrome and ChromeDriver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-          CHROME_VERSION=$(google-chrome-stable --version | cut -d " " -f3)
-          sudo apt-get install -y chromium-chromedriver || true
-          which chromedriver
-          chromedriver --version || true
-
-      # ✅ 環境変数でCapybaraの設定
-      - name: Set Capybara environment variables
-        run: |
-          echo "CAPYBARA_DRIVER=selenium_chrome_headless" >> $GITHUB_ENV
-          echo "SELENIUM_CHROME_PATH=/usr/bin/google-chrome-stable" >> $GITHUB_ENV
 
       - name: Wait for DB
         run: |
