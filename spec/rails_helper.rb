@@ -35,7 +35,7 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
-# RSpec.configure do |config|
+  # RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   
 
@@ -108,5 +108,6 @@ RSpec.configure do |config|
     # Capybara.ignore_hidden_elements = false
 
     driven_by :selenium_chrome_headless
+    Capybara.default_max_wait_time = 5 # ← これ大事！
   end
 end
